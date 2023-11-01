@@ -8,4 +8,10 @@
 
 <script>
 import TopMenu from '../components/TopMenu.vue';
+export default {
+    name: 'Home',
+    components: {
+        TopMenu
+    }
+}
 </script>
