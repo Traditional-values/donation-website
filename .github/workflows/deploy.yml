@@ -1,5 +1,17 @@
 name: Deploy
 
+permissions:
+  contents: write
+  deployments: write
+  issues: write
+  discussions: write
+  packages: write
+  pages: write
+  pull-requests: write
+  repository-projects: write
+  statuses: write
+
+
 on:
   push:
     branches:
