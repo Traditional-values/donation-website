@@ -1,0 +1,1 @@
+import{_ as e,o as t,c as o,a as _}from"./index-5eb5521d.js";const n={},s={class:"donate"},c=_("h1",null,"Donate",-1),a=[c];function r(d,i){return t(),o("div",s,a)}const f=e(n,[["render",r]]);export{f as default};
