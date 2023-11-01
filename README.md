@@ -1,4 +1,4 @@
-# My Vue App
+# Traditional values organizaion main website
 
 This is a VueJS 3.x boilerplate for a donation website. It is set up to be automatically deployed to GitHub Pages using GitHub Actions.
 
