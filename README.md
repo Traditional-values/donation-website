@@ -1,65 +1,71 @@
-# Traditional values organizaion main website
+# Vue Enterprise Boilerplate v3 (alpha)
 
-This is a VueJS 3.x boilerplate for a donation website. It is set up to be automatically deployed to GitHub Pages using GitHub Actions.
+This repo is currently in active development and considered in alpha release.
 
-## Project setup
+> This is an ever-evolving, opinionated architecture and dev environment for new Vue 3 + Vite SPA projects using [create-vue](https://github.com/vuejs/create-vue).
 
-First, clone the repository to your local machine:
+🎩 A huge thanks to [Chris Fritz](https://twitter.com/chrisvfritz) for the incredible work that this work builds upon. For those looking for his version, see [this branch for the original Vue 2 enterprise boilerplate](https://github.com/bencodezen/vue-enterprise-boilerplate/tree/vue-2-version).
 
-```bash
-git clone https://github.com/yourusername/my-vue-app.git
-```
+## Recommended IDE Setup
 
-Navigate into the project directory:
+[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
 
-```bash
-cd my-vue-app
-```
+## Type Support for `.vue` Imports in TS
 
-Install the necessary dependencies:
+TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
 
-```bash
+If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
+
+1. Disable the built-in TypeScript Extension
+   1. Run `Extensions: Show Built-in Extensions` from VSCode's command palette
+   2. Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
+2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
+
+## Project Setup
+
+```sh
 npm install
 ```
 
-## Running the application
+### Compile and Hot-Reload for Development
 
-To run the application in development mode, use the following command:
-
-```bash
-npm run serve
+```sh
+npm run dev
 ```
 
-This will start a local development server. You can view the application by opening `http://localhost:8080` in your browser.
+### Type-Check, Compile and Minify for Production
 
-## Building the application
-
-To build the application for production, use the following command:
-
-```bash
+```sh
 npm run build
 ```
 
-This will create a `dist` directory with the compiled assets.
+### Run Unit Tests with [Vitest](https://vitest.dev/)
 
-## Deploying the application
-
-The application is set up to be automatically deployed to GitHub Pages whenever changes are pushed to the `main` branch. This is done using a GitHub Actions workflow defined in `.github/workflows/deploy.yml`.
-
-If you want to manually deploy the application, you can use the following command:
-
-```bash
-npm run deploy
+```sh
+npm run test:unit
 ```
 
-This will build the application and push the `dist` directory to the `gh-pages` branch.
+### Run End-to-End Tests with [Playwright](https://playwright.dev)
 
-## Contributing
+```sh
+# Install browsers for the first run
+npx playwright install
 
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+# When testing on CI, must build the project first
+npm run build
 
-Please make sure to update tests as appropriate.
+# Runs the end-to-end tests
+npm run test:e2e
+# Runs the tests only on Chromium
+npm run test:e2e -- --project=chromium
+# Runs the tests of a specific file
+npm run test:e2e -- tests/example.spec.ts
+# Runs the tests in debug mode
+npm run test:e2e -- --debug
+```
 
-## License
+### Lint with [ESLint](https://eslint.org/)
 
-[MIT](https://choosealicense.com/licenses/mit/)
+```sh
+npm run lint
+```
